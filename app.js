@@ -8,9 +8,9 @@ btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
     if (userInput !== "") {
         if (userInput === "went") {
-            imgSuccess.src = "/home/educoder/projects/Js/IrregularVerbsPractice/img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
+            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
         } else {
-            imgSuccess.src = "/home/educoder/projects/Js/IrregularVerbsPractice/img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
+            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
         }
     }
 });
