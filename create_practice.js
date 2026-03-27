@@ -24,14 +24,34 @@ function createPracticeCard() {
         <span id="selected_verb" class="verb-display">${selected_verb}</span>
     `;
 
+    const definition = document.createElement('td');
+    definition.innerHTML = `
+        <button class="btn-secc" id="btn_def">Def</button>
+    `;
+
+    const example = document.createElement('td');
+    example.innerHTML = `
+        <button class="btn-secc" id="btn_eg">E.g</button>
+    `;
+
     const td4 = document.createElement('td');
     td4.textContent = "";
 
     row.appendChild(counterTd);
     row.appendChild(sentence);
     row.appendChild(selectedVerb);
+    row.appendChild(definition);
+    row.appendChild(example);
     row.appendChild(td4);
 
     // 4. Append the 'tr' element to the parent (verb_table)
     element.appendChild(row);
+
+    definition.addEventListener("click", function() {
+        alert(Verbs.at(random).definition);
+    });
+
+    example.addEventListener("click", function() {
+        alert(Verbs.at(random).example);
+    });
 }
