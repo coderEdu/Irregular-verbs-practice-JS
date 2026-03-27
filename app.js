@@ -16,8 +16,8 @@ function getRandomInt(min, max) {
 // let randomInt = getRandomInt(1, 10);
 
 var counter = 0;
-var random = getRandomInt(0, Verbs.length);
-var selected_verb = Verbs.at(random).infinitive;
+let random = getRandomInt(0, Verbs.length);
+let selected_verb = Verbs.at(random).infinitive;
 var spelling = Verbs.at(random).pastSimple;
 
 document.getElementById("verb_display").innerHTML = selected_verb;

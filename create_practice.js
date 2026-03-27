@@ -16,6 +16,8 @@ function createPracticeCard() {
         <span>Write the past tense of the following irregular verb</span>
     `;
 
+    let random = getRandomInt(0, Verbs.length);
+    let selected_verb = Verbs.at(random).infinitive;
     const selectedVerb = document.createElement('td');
     selectedVerb.textContent = selected_verb;
     selectedVerb.innerHTML = `
