@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irregular Verbs Practice</title>
     <link rel="stylesheet" href="style.css">
+    <script src="verbs.js" defer></script>
     <script src="app.js" defer></script>
 </head>
 <body>
@@ -13,19 +14,19 @@
         <table>
             <tr>
                 <td>
-                    <span>1.</span>
+                    <span id="counter"></span>
                 </td>
                 <td>
                     <span>Write the past tense of the following irregular verb:</span>
                 </td>
                 <td>
-                    <span id="verb_display">go</span>
+                    <span id="verb_display"></span>
                 </td>
                 <td>
-                    <input type="text" name="verb" id="verb_input" placeholder="Enter past tense">
+                    <input type="text" name="verb" id="verb_input" class="verb-input" placeholder="Enter past tense">
                 </td>
                 <td>
-                    <button id="btn_check">Check spelling</button>
+                    <button id="btn_check" class="btn-check">Check Spelling</button>
                 </td>
                 <td class="td_img">
                     <img src="" alt="" srcset="" id="img_success">
