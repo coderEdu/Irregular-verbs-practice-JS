@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <script src="verbs.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="create_practice.js" defer></script>
 </head>
 <body>
     <h1 class="title">Welcome to Irregular Verbs Practice!</h1>
     <div class="container">
-        <table>
+        <table id="verb_table">
             <tr>
                 <td>
                     <span id="counter"></span>
                 </td>
                 <td>
-                    <span>Write the past tense of the following irregular verb:</span>
+                    <span>Write the past tense of the following irregular verb</span>
                 </td>
                 <td>
-                    <span id="verb_display"></span>
+                    <span id="verb_display" class="verb-display"></span>
                 </td>
                 <td>
                     <button class="btn-secc" id="btn_def">Def</button>
