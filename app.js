@@ -4,6 +4,8 @@ verbDisplay.style.color = "blue";
 const btn_check = document.getElementById("btn_check");
 const verbInput = document.getElementById("verb_input");
 const imgSuccess = document.getElementById("img_success");
+const btn_def = document.getElementById("btn_def");
+const btn_eg = document.getElementById("btn_eg");
 
 
 // Random function
@@ -23,6 +25,13 @@ var spelling = Verbs.at(random).pastSimple;
 document.getElementById("verb_display").innerHTML = selected_verb;
 document.getElementById("counter").innerHTML = ++counter + ".";
 
+btn_def.addEventListener("click", function() {
+    alert(Verbs.at(random).definition);
+});
+
+btn_eg.addEventListener("click", function() {
+    alert(Verbs.at(random).example);
+});
 
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
