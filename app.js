@@ -25,7 +25,7 @@ function loadData() {
     random = getRandomInt(0, Verbs.length);
     selected_verb = Verbs.at(random).infinitive;
     spelling = Verbs.at(random).pastSimple;
-    verbDisplay = document.getElementById("verb_display");
+    verbDisplay = document.getElementById("verb_display" + counter);
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
     imgSuccess = document.getElementById("img_success" + counter);
@@ -40,7 +40,7 @@ function insertPracticeCard() {
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
         <td><span>Write the past tense of the following irregular verb</span></td>
-        <td><span id="verb_display" class="verb-display">${selected_verb}</span></td>
+        <td><span id="verb_display${counter}" class="verb-display">${selected_verb}</span></td>
         <td><button class="btn-secc" id="btn_def">Def</button></td>
         <td><button class="btn-secc" id="btn_eg">E.g</button></td>
         <td class="td_img"><img src="" alt="" srcset="" id="img_success${counter}"></td>
@@ -50,7 +50,7 @@ function insertPracticeCard() {
     verbTable.appendChild(tr);
 }
 
-document.getElementById("verb_display").innerHTML = selected_verb;
+document.getElementById("verb_display" + counter).innerHTML = selected_verb;
 document.getElementById("counter").innerHTML = counter + ".";
 
 btn_def.addEventListener("click", function() {
