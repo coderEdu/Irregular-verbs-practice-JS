@@ -7,39 +7,44 @@
     <link rel="stylesheet" href="style.css">
     <script src="verbs.js" defer></script>
     <script src="app.js" defer></script>
-    <script src="create_practice.js" defer></script>
 </head>
 <body>
     <h1 class="title">Welcome to Irregular Verbs Practice!</h1>
     <div class="container">
         <table id="verb_table">
-            <tr>
-                <td>
-                    <span id="counter"></span>
-                </td>
-                <td>
-                    <span>Write the past tense of the following irregular verb</span>
-                </td>
-                <td>
-                    <span id="verb_display" class="verb-display"></span>
-                </td>
-                <td>
-                    <button class="btn-secc" id="btn_def">Def</button>
-                </td>
-                <td>
-                    <button class="btn-secc" id="btn_eg">E.g</button>
-                </td>
-                <td>
-                    <input type="text" name="verb" class="verb-input" placeholder="Enter past tense">
-                </td>
-                <td>
-                    <button class="btn-check" name="btn_check">Check Spelling</button>
-                </td>
-                <td class="td_img">
-                    <img src="" alt="" srcset="" id="img_success">
-                </td>
-            </tr>
+            <tbody>
+                <!-- 
+                    <tr>
+                        <td>
+                            <span id="counter"></span>
+                        </td>
+                        <td>
+                            <span>Write the past tense of the following irregular verb</span>
+                        </td>
+                        <td>
+                            <span id="verb_display" class="verb-display"></span>
+                        </td>
+                        <td>
+                            <button class="btn-secc" id="btn_def">Def</button>
+                        </td>
+                        <td>
+                            <button class="btn-secc" id="btn_eg">E.g</button>
+                        </td>
+                        <td class="td_img">
+                            <img src="" alt="" srcset="" id="img_success">
+                        </td>
+                    </tr>
+                -->
+            </tbody>
         </table>
+        <div class="input-container">
+            <div>                
+                <input type="text" name="verb" class="verb-input" placeholder="Enter past tense">
+            </div>
+            <div>
+                <button class="btn-check" name="btn_check">Check Spelling</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

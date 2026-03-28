@@ -21,7 +21,7 @@ function createPracticeCard() {
     const selectedVerb = document.createElement('td');
     selectedVerb.textContent = selected_verb;
     selectedVerb.innerHTML = `
-        <span id="selected_verb" class="verb-display">${selected_verb}</span>
+        <span id="verb_display" class="verb-display">${selected_verb}</span>
     `;
 
     const definition = document.createElement('td');
@@ -32,16 +32,6 @@ function createPracticeCard() {
     const example = document.createElement('td');
     example.innerHTML = `
         <button class="btn-secc" id="btn_eg">E.g</button>
-    `;
-
-    const inputverb = document.createElement('td');
-    inputverb.innerHTML = `
-        <input type="text" name="verb" class="verb-input" placeholder="Enter past tense">
-    `;
-
-    const btnCheck = document.createElement('td');
-    btnCheck.innerHTML = `
-        <button class="btn-check" name="btn_check">Check Spelling</button>
     `;
 
     const img = document.createElement('td');
@@ -55,12 +45,12 @@ function createPracticeCard() {
     row.appendChild(selectedVerb);
     row.appendChild(definition);
     row.appendChild(example);
-    row.appendChild(inputverb);
-    row.appendChild(btnCheck);
     row.appendChild(img);
 
     // 4. Append the 'tr' element to the parent (verb_table)
     element.appendChild(row);
+
+    /*
 
     definition.addEventListener("click", function() {
         alert(Verbs.at(random).definition);
@@ -75,13 +65,15 @@ function createPracticeCard() {
 
     btnCheck.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
-    if (userInput !== "") {
-        if (userInput === spelling) {
-            imgId.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
-            createPracticeCard();
-        } else {
-            imgId.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
+        if (userInput !== "") {
+            if (userInput === spelling) {
+                imgId.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
+                createPracticeCard();
+            } else {
+                imgId.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
+            }
         }
-    }
-});
+    });
+
+    */
 }
