@@ -31,10 +31,11 @@ function loadData() {
     imgSuccess = document.getElementById("img_success" + counter);
     btn_def = document.getElementById("btn_def");
     btn_eg = document.getElementById("btn_eg");
-    ++counter;
+    //counter++;
 }
 
 function insertPracticeCard() {
+    ++counter;
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
@@ -62,9 +63,11 @@ btn_eg.addEventListener("click", function() {
 
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
+
     console.log("Counter", counter);
     console.log("User input:", userInput);
     console.log("Spelling:", spelling);
+    
     if (userInput !== "") {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
