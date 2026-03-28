@@ -25,13 +25,13 @@ function loadData() {
     random = getRandomInt(0, Verbs.length);
     selected_verb = Verbs.at(random).infinitive;
     spelling = Verbs.at(random).pastSimple;
-    ++counter;
     verbDisplay = document.getElementById("verb_display");
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
-    imgSuccess = document.getElementById("img_success");
+    imgSuccess = document.getElementById("img_success" + counter);
     btn_def = document.getElementById("btn_def");
     btn_eg = document.getElementById("btn_eg");
+    ++counter;
 }
 
 function insertPracticeCard() {
@@ -42,7 +42,7 @@ function insertPracticeCard() {
         <td><span id="verb_display" class="verb-display">${selected_verb}</span></td>
         <td><button class="btn-secc" id="btn_def">Def</button></td>
         <td><button class="btn-secc" id="btn_eg">E.g</button></td>
-        <td class="td_img"><img src="" alt="" srcset="" id="img_success"></td>
+        <td class="td_img"><img src="" alt="" srcset="" id="img_success${counter}"></td>
     `;
 
     const verbTable = document.getElementById("verb_table");
