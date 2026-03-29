@@ -18,7 +18,6 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
-//insertPracticeCard();
 loadData();
 
 function loadData() {
@@ -33,30 +32,26 @@ function loadData() {
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
     imgSuccess = document.getElementById("img_success" + counter);
-    btn_def = document.getElementById("btn_def");
-    btn_eg = document.getElementById("btn_eg");
-    //counter++;
+    btn_def = document.getElementById("btn_def" + counter);
+    btn_eg = document.getElementById("btn_eg" + counter);
 }
 
 document.getElementById("verb_display" + counter).innerHTML = random_verb;
 
 function insertPracticeCard() {
-    //++counter;
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
         <td><span>Write the past tense of the following irregular verb</span></td>
         <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
-        <td><button class="btn-secc" id="btn_def">Def</button></td>
-        <td><button class="btn-secc" id="btn_eg">E.g</button></td>
+        <td><button class="btn-secc" id="btn_def${counter}">Def</button></td>
+        <td><button class="btn-secc" id="btn_eg${counter}">E.g</button></td>
         <td class="td_img"><img src="" alt="" srcset="" id="img_success${counter}"></td>
     `;
 
     const verbTable = document.getElementById("verb_table");
     verbTable.appendChild(tr);
 }
-
-//document.getElementById("counter").innerHTML = counter + ".";
 
 btn_def.addEventListener("click", function() {
     alert(Verbs.at(random).definition);
@@ -68,13 +63,6 @@ btn_eg.addEventListener("click", function() {
 
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
-
-    //console.log("Counter", counter);
-    //console.log("User input:", userInput);
-    //console.log("Random index:", random);
-    //console.log("Random verb:", random_verb);
-    //console.log("Verb Display:", verbDisplay.innerHTML);
-    //console.log("Spelling:", spelling);
     
     if (userInput !== "") {
         if (userInput === spelling) {
