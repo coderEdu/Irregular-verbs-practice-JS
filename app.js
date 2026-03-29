@@ -1,12 +1,12 @@
-var verbDisplay;
+var verbDisplay = "";
 var btn_check;
-var verbInput;
+var verbInput = "";
 var imgSuccess;
 var btn_def;
 var btn_eg;
 var counter = 0;
 var random;
-var selected_verb;
+var random_verb;
 var spelling;
 
 // Random function
@@ -18,12 +18,16 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
-insertPracticeCard();
+//insertPracticeCard();
 loadData();
 
 function loadData() {
+    ++counter;
     random = getRandomInt(0, Verbs.length);
-    selected_verb = Verbs.at(random).infinitive;
+    random_verb = Verbs.at(random).infinitive;
+
+    insertPracticeCard();
+
     spelling = Verbs.at(random).pastSimple;
     verbDisplay = document.getElementById("verb_display" + counter);
     btn_check = document.querySelector("button[name='btn_check']");
@@ -34,13 +38,15 @@ function loadData() {
     //counter++;
 }
 
+document.getElementById("verb_display" + counter).innerHTML = random_verb;
+
 function insertPracticeCard() {
-    ++counter;
+    //++counter;
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
         <td><span>Write the past tense of the following irregular verb</span></td>
-        <td><span id="verb_display${counter}" class="verb-display">${selected_verb}</span></td>
+        <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
         <td><button class="btn-secc" id="btn_def">Def</button></td>
         <td><button class="btn-secc" id="btn_eg">E.g</button></td>
         <td class="td_img"><img src="" alt="" srcset="" id="img_success${counter}"></td>
@@ -50,8 +56,7 @@ function insertPracticeCard() {
     verbTable.appendChild(tr);
 }
 
-document.getElementById("verb_display" + counter).innerHTML = selected_verb;
-document.getElementById("counter").innerHTML = counter + ".";
+//document.getElementById("counter").innerHTML = counter + ".";
 
 btn_def.addEventListener("click", function() {
     alert(Verbs.at(random).definition);
@@ -64,15 +69,17 @@ btn_eg.addEventListener("click", function() {
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
 
-    console.log("Counter", counter);
-    console.log("User input:", userInput);
-    console.log("Spelling:", spelling);
+    //console.log("Counter", counter);
+    //console.log("User input:", userInput);
+    //console.log("Random index:", random);
+    //console.log("Random verb:", random_verb);
+    //console.log("Verb Display:", verbDisplay.innerHTML);
+    //console.log("Spelling:", spelling);
     
     if (userInput !== "") {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
-            insertPracticeCard();
             loadData();
         } else {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
