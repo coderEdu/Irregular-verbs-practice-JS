@@ -44,7 +44,7 @@ function insertPracticeCard() {
         <td><span id="counter">${counter}.</span></td>
         <td><span>Write the past tense of the following irregular verb</span></td>
         <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
-        <td class="td_img"><img src="" alt="" srcset="" id="img_success${counter}"></td>
+        <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
     `;
 
     const verbTable = document.getElementById("verb_table");
@@ -67,8 +67,11 @@ btn_check.addEventListener("click", function() {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
             loadData();
+            verbInput.focus();
         } else {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
+            verbInput.value = "";
+            verbInput.focus();
         }
     }
 });

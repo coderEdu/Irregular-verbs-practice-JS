@@ -16,7 +16,7 @@
     gap: 20px;
 }
 .container > table th, .container > table td {
-    padding: 10px;
+    padding: 5px 12px;
     text-align: center;
 }
 .container > table, .container > table th, .container > table td {
@@ -28,8 +28,8 @@
     text-align: center;
 }
 .btn-check {
-    background-color: rgb(77, 97, 255);
-    border: none;
+    background-color: rgb(118, 134, 255);
+    border: 1px solid rgb(18, 41, 214);
     color: white;
     padding: 7px 12px;
     text-align: center;
@@ -40,8 +40,8 @@
     cursor: pointer;
 }
 .btn-secc {
-    background-color: white;
-    border: 1px solid rgb(248, 123, 187);
+    background-color: rgb(254, 222, 238);
+    border: 1px solid rgb(255, 147, 203);
     color: black;
     padding: 7px 12px;
     text-align: center;
