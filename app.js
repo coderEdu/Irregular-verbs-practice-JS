@@ -18,8 +18,9 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
-//console.log(Verbs.length);
-
+//const tense = document.querySelector('input[name="tense"]:checked').value;
+//const verb_amount = document.getElementById("verb_amount").value;
+//console.log(tense);
 loadData();
 
 function loadData() {
@@ -44,7 +45,7 @@ function insertPracticeCard() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
-        <td><span>Write the past tense of the following irregular verb</span></td>
+        <td><span>Write the ${tense} tense of the following irregular verb</span></td>
         <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
         <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
     `;

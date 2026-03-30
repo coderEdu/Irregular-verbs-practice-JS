@@ -5,29 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irregular Verbs Practice</title>
     <link rel="stylesheet" href="style.css">
-    <script src="verbs.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="formData.js" defer></script>
 </head>
 <body>
     <h1 class="title">Welcome to Irregular Verbs Practice!</h1>
     <div class="container">
-        <table id="verb_table">
-            <tbody></tbody>
-        </table>
-        <div class="input-container">
-            <div class="input-child">
-                <div>                
-                    <input type="text" name="verb" class="verb-input" placeholder="Enter past tense" autofocus>
+        <form id="settings_form" action="practice.html" method="get">
+            <div class="sett-container">
+                <h4>What tense do you want to practice?</h4>
+                <div>
+                    <input type="radio" id="infinitive" name="tense" value="infinitive" checked>
+                    <label for="infinitive">Infinitive</label>
+                    <input type="radio" id="pastSimple" name="tense" value="pastSimple">
+                    <label for="pastSimple">Past Simple</label>
+                    <input type="radio" id="pastParticiple" name="tense" value="pastParticiple">
+                    <label for="pastParticiple">Past Participle</label>
                 </div>
                 <div>
-                    <button class="btn-check" name="btn_check">Check Spelling</button>
+                    <h4>How many verbs do you want to practice?</h4>
+                    <div>
+                        <select name="verb_amount" id="verb_amount">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button type="button" onclick="getSettings()">Start Practice</button>
                 </div>
             </div>
-            <div class="input-child">
-                <button class="btn-secc" id="btn_def">Def.</button>
-                <button class="btn-secc" id="btn_eg">E.g.</button>
-            </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>
