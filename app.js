@@ -18,6 +18,8 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
+//console.log(Verbs.length);
+
 loadData();
 
 function loadData() {
