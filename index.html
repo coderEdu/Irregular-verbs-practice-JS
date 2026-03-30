@@ -5,40 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irregular Verbs Practice</title>
     <link rel="stylesheet" href="style.css">
-    <script src="formData.js" defer></script>
 </head>
 <body>
     <h1 class="title">Welcome to Irregular Verbs Practice!</h1>
     <div class="container">
-        <form id="settings_form" action="practice.html" method="get">
-            <div class="sett-container">
-                <h4>What tense do you want to practice?</h4>
+
+        <div class="sett-container">
+            <h4>What tense do you want to practice?</h4>
+            <div>
+                <input type="radio" id="infinitive" name="tense" value="infinitive">
+                <label for="infinitive">Infinitive</label>
+                <input type="radio" id="pastSimple" name="tense" value="past simple" checked>
+                <label for="pastSimple">Past Simple</label>
+                <input type="radio" id="pastParticiple" name="tense" value="past participle">
+                <label for="pastParticiple">Past Participle</label>
+            </div>
+            <div>
+                <h4>How many verbs do you want to practice?</h4>
                 <div>
-                    <input type="radio" id="infinitive" name="tense" value="infinitive" checked>
-                    <label for="infinitive">Infinitive</label>
-                    <input type="radio" id="pastSimple" name="tense" value="pastSimple">
-                    <label for="pastSimple">Past Simple</label>
-                    <input type="radio" id="pastParticiple" name="tense" value="pastParticiple">
-                    <label for="pastParticiple">Past Participle</label>
-                </div>
-                <div>
-                    <h4>How many verbs do you want to practice?</h4>
-                    <div>
-                        <select name="verb_amount" id="verb_amount">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="margin-top: 20px;">
-                    <button type="button" onclick="getSettings()">Start Practice</button>
+                    <select name="verb_amount" id="verb_amount">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
                 </div>
             </div>
-        </form>
+            <div style="margin-top: 20px;">
+                <button type="button" onclick="getSettings()">Start Practice</button>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
+
+<script type="module">
+
+</script>
+<script>
+     function getSettings() {
+
+        const tense = document.querySelector('input[name="tense"]:checked').value;
+        const verb_amount = document.getElementById("verb_amount").value;
+
+        // Store a string
+        localStorage.setItem('tense', tense);
+        localStorage.setItem('verb_amount', verb_amount);
+
+        location.href = "practice.html";
+    }
+</script>

@@ -9,6 +9,9 @@ var random;
 var random_verb;
 var spelling;
 
+let tense = localStorage.getItem('tense'); // "past simple" or "past participle"
+let verb_amount = localStorage.getItem('verb_amount');  // 20, 50, 100, all
+
 // Random function
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -18,19 +21,30 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
-//const tense = document.querySelector('input[name="tense"]:checked').value;
-//const verb_amount = document.getElementById("verb_amount").value;
-//console.log(tense);
 loadData();
 
+function convertTenseString(tense) {
+    if (tense === "past simple") {
+        return "pastSimple";
+    } else if (tense === "past participle") {
+        return "pastParticiple";
+    } else {
+        return "infinitive";
+    }
+}
+
 function loadData() {
+    console.log(tense);
+    console.log(verb_amount);
+
     ++counter;
     random = getRandomInt(0, Verbs.length);
     random_verb = Verbs.at(random).infinitive;
 
     insertPracticeCard();
 
-    spelling = Verbs.at(random).pastSimple;
+    const tenseToPractice = convertTenseString(tense);
+    spelling = Verbs.at(random)[tenseToPractice];
     verbDisplay = document.getElementById("verb_display" + counter);
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
@@ -65,7 +79,17 @@ btn_eg.addEventListener("click", function() {
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
     
-    if (userInput !== "") {
+    // console.log("Counter", counter);
+    // console.log("User input:", userInput);
+    // console.log("Random index:", random);
+    // console.log("Random verb:", random_verb);
+    // console.log("Verb Display:", verbDisplay.innerHTML);
+    // console.log("Spelling:", spelling);
+
+    if (verb_amount <= counter) {   // Continue checking this condition ...
+        alert("You have completed the practice session! Click OK to return to the settings page.");
+        location.href = "index.html";
+    } else {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
@@ -76,5 +100,5 @@ btn_check.addEventListener("click", function() {
             verbInput.value = "";
             verbInput.focus();
         }
-    }
+    } 
 });
