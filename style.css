@@ -28,8 +28,8 @@
     text-align: center;
 }
 .btn-check {
-    background-color: rgb(118, 134, 255);
-    border: 1px solid rgb(18, 41, 214);
+    background-color: rgb(70, 92, 253);
+    border: 1px solid rgb(0, 19, 167);
     color: white;
     padding: 7px 12px;
     text-align: center;
@@ -48,7 +48,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
 }
 .verb-display {
@@ -61,10 +61,13 @@
 .input-container {
     width: 31%;
     display: flex;
+    padding: 12px;
+    background-color: rgb(240, 240, 240);
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     margin-top: 20px;
+    border-radius: 5px;
 }
 .input-child {
     display: flex;
