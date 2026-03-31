@@ -73,3 +73,25 @@
     display: flex;
     gap: 10px;
 }
+input[type="radio"] {
+  accent-color: #ff006f; /* Changes the fill color when checked */
+  width: 1.4em; /* Increases size slightly */
+  height: 1.4em;
+}
+select {
+    padding: 5px;
+    font-size: 14px;
+}
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+.sett-bott-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
