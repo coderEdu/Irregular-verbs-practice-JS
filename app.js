@@ -39,7 +39,12 @@ function loadData() {
 
     ++counter;
     random = getRandomInt(0, Verbs.length);
-    random_verb = Verbs.at(random).infinitive;
+
+    if (tense === "infinitive") {
+        random_verb = Verbs.at(random).pastSimple;
+    } else {
+        random_verb = Verbs.at(random).infinitive;
+    }
 
     insertPracticeCard();
 
@@ -54,12 +59,7 @@ function loadData() {
 }
 
 // Set the verb display to the random verb
-if (tense === "infinitive") {
-    random_verb = Verbs.at(random).pastSimple;
-    document.getElementById("verb_display" + counter).innerHTML = random_verb;
-} else {
-    document.getElementById("verb_display" + counter).innerHTML = random_verb;
-}
+document.getElementById("verb_display" + counter).innerHTML = random_verb;
 
 function insertPracticeCard() {
     const tr = document.createElement('tr');
