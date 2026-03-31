@@ -79,26 +79,28 @@ btn_eg.addEventListener("click", function() {
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
     
-    // console.log("Counter", counter);
-    // console.log("User input:", userInput);
-    // console.log("Random index:", random);
-    // console.log("Random verb:", random_verb);
-    // console.log("Verb Display:", verbDisplay.innerHTML);
-    // console.log("Spelling:", spelling);
+    //console.log("Counter", counter);
+    //console.log("User input:", userInput);
+    //console.log("Random index:", random);
+    //console.log("Random verb:", random_verb);
+    //console.log("Verb Display:", verbDisplay.innerHTML);
+    //console.log("Spelling:", spelling);
 
-    if (verb_amount <= counter) {   // Continue checking this condition ...
-        alert("You have completed the practice session! Click OK to return to the settings page.");
-        location.href = "index.html";
-    } else {
+    if (userInput !== "") {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
-            loadData();
-            verbInput.focus();
+            if (counter >= verb_amount) {   // Continue checking this condition ...
+                alert("You have completed the practice session! Click OK to return to the settings page.");
+                location.href = "index.html";
+            } else {
+                loadData();
+                verbInput.focus();
+            } 
         } else {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
             verbInput.value = "";
             verbInput.focus();
         }
-    } 
+    }
 });
