@@ -2,8 +2,6 @@ var verbDisplay = "";
 var btn_check;
 var verbInput = "";
 var imgSuccess;
-var btn_def;
-var btn_eg;
 var counter = 0;
 var random;
 var random_verb;
@@ -61,8 +59,6 @@ function loadData() {
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
     imgSuccess = document.getElementById("img_success" + counter);
-    btn_def = document.getElementById("btn_def");
-    btn_eg = document.getElementById("btn_eg");
 }
 
 function insertPracticeCard() {
@@ -78,24 +74,8 @@ function insertPracticeCard() {
     verbTable.appendChild(tr);
 }
 
-//btn_def.addEventListener("click", function() {
-//    alert(Verbs.at(random).definition);
-//});
-
-btn_eg.addEventListener("click", function() {
-    alert(Verbs.at(random).example);
-});
-
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
-    
-    //console.log("Counter", counter);
-    //console.log("User input:", userInput);
-    //console.log("Random index:", random);
-    //console.log("Random verb:", random_verb);
-    //console.log("Verb Display:", verbDisplay.innerHTML);
-    //console.log("Spelling:", spelling);
-
     if (userInput !== "") {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
