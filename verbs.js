@@ -1,15 +1,3 @@
-/*
-function Verb(infinitive, pastSimple, pastParticiple, definition, example) {
-  this.infinitive = infinitive;
-  this.pastSimple = pastSimple;
-  this.pastParticiple = pastParticiple;
-  this.definition = definition;
-  this.example = example;
-}
-const go = new Verb("go", "went", "gone", "move from one place to another; travel.", "\"he went out to the shops\"");
-*/
-// -----------------------------------------------------------------------------
-
 const Verbs = [
   { infinitive: "be", pastSimple: "was/were", pastParticiple: "been", definition: "exist", example: "\"there are no easy answers\"" },
   { infinitive: "beat", pastSimple: "beat", pastParticiple: "beaten",

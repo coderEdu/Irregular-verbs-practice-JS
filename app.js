@@ -9,6 +9,7 @@ var random;
 var random_verb;
 var spelling;
 
+// from local storage
 let tense = localStorage.getItem('tense'); // "infinitive", "past simple" or "past participle"
 let verb_amount = localStorage.getItem('verb_amount');  // 20, 50, 100, all
 let inf_tense = localStorage.getItem('inf_tense'); // "past simple" or "past participle"
@@ -77,9 +78,9 @@ function insertPracticeCard() {
     verbTable.appendChild(tr);
 }
 
-btn_def.addEventListener("click", function() {
-    alert(Verbs.at(random).definition);
-});
+//btn_def.addEventListener("click", function() {
+//    alert(Verbs.at(random).definition);
+//});
 
 btn_eg.addEventListener("click", function() {
     alert(Verbs.at(random).example);
