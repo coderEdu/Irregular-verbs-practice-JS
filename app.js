@@ -9,8 +9,9 @@ var random;
 var random_verb;
 var spelling;
 
-let tense = localStorage.getItem('tense'); // "past simple" or "past participle"
+let tense = localStorage.getItem('tense'); // "infinitive", "past simple" or "past participle"
 let verb_amount = localStorage.getItem('verb_amount');  // 20, 50, 100, all
+let inf_tense = localStorage.getItem('inf_tense'); // "past simple" or "past participle"
 
 // Random function
 function getRandomInt(min, max) {
@@ -36,12 +37,17 @@ function convertTenseString(tense) {
 function loadData() {
     console.log(tense);
     console.log(verb_amount);
+    console.log(inf_tense);
 
     ++counter;
     random = getRandomInt(0, Verbs.length);
 
     if (tense === "infinitive") {
-        random_verb = Verbs.at(random).pastSimple;
+        if (inf_tense === "past simple") {
+            random_verb = Verbs.at(random).pastSimple;
+        } else if (inf_tense === "past participle") {
+            random_verb = Verbs.at(random).pastParticiple;
+        }
     } else {
         random_verb = Verbs.at(random).infinitive;
     }
@@ -94,7 +100,7 @@ btn_check.addEventListener("click", function() {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
             if (counter >= verb_amount) {   // Continue checking this condition ...
-                alert("You have completed the practice session! Click OK to return to the settings page.");
+                alert("Great job! You have completed the practice session! Click OK to return to the settings page.");
                 location.href = "index.html";
             } else {
                 loadData();

@@ -1,7 +1,7 @@
 .title {
     text-align: center;
     margin-top: 20px;
-    font-size: 24px;
+    font-size: 26px;
     color: #333;
 }
 .container {
@@ -81,6 +81,14 @@ input[type="radio"] {
 select {
     padding: 5px;
     font-size: 14px;
+}
+.if-infin-container {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: rgb(240, 240, 240);
 }
 .separator {
     width: 100%;
