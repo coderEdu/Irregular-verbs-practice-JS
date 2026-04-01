@@ -80,9 +80,26 @@ btn_check.addEventListener("click", function() {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
-            if (counter >= verb_amount) {   // Continue checking this condition ...
-                alert("Great job! You have completed the practice session! Click OK to return to the settings page.");
-                location.href = "index.html";
+            if (counter >= verb_amount) {
+                // The ending practice modal
+                const modal = document.createElement('dialog');
+                modal.innerHTML = `
+                    <div class="final-modal-title">
+                        <h2>Great job!</h2>
+                        <img src="img/Iconshock-Super-Vista-Business-Trophy.24.png" alt="" srcset="">
+                    </div>
+                    <p>You have completed the practice session! Click OK to return to the settings page.</p>
+                    <button class="btn-secc" id="close_modal_btn">OK</button>
+                `;
+                document.body.appendChild(modal);
+                modal.showModal();
+
+                const closeModalBtn = document.getElementById('close_modal_btn');
+                closeModalBtn.addEventListener('click', () => {
+                    modal.close();
+                    location.href = "index.html";
+                });
+                
             } else {
                 loadData();
                 verbInput.focus();
