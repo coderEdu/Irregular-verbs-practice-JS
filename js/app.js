@@ -60,6 +60,8 @@ function loadData() {
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
     imgSuccess = document.getElementById("img_success" + counter);
+
+    verbInput.setAttribute("placeholder", `Enter the ${tense} tense`);
 }
 
 function insertPracticeCard() {

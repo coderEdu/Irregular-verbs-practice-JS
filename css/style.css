@@ -58,6 +58,7 @@
     color: blue;
 }
 .verb-input {
+    width: 190px;
     padding: 5px;
     font-size: 14px;
 }
