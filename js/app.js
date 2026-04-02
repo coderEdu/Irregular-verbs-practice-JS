@@ -65,7 +65,7 @@ function insertPracticeCard() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
-        <td><span>Write the ${tense} tense of the following irregular verb</span></td>
+        <td>Write the <span class="tense-highlight">${tense}</span> tense of the following irregular verb</td>
         <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
         <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
     `;

@@ -51,6 +51,9 @@
     border-radius: 4px;
     cursor: pointer;
 }
+.tense-highlight {
+    background-color: rgb(252, 252, 182);
+}
 .verb-display {
     color: blue;
 }
