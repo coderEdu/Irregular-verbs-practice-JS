@@ -34,9 +34,10 @@ function convertTenseString(tense) {
 }
 
 function loadData() {
-    console.log(tense);
-    console.log(verb_amount);
-    console.log(inf_tense);
+    // console.log(tense);
+    // console.log(verb_amount);
+    // console.log(inf_tense);
+    // console.log(Verbs.length);
 
     ++counter;
     random = getRandomInt(0, Verbs.length);
