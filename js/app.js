@@ -85,14 +85,18 @@ btn_check.addEventListener("click", function() {
             verbInput.value = "";
             if (counter >= verb_amount) {
                 // The ending practice modal
+                confetti();
                 const modal = document.createElement('dialog');
                 modal.innerHTML = `
                     <div class="final-modal-title">
                         <h2>Great job!</h2>
                         <img src="img/Iconshock-Super-Vista-Business-Trophy.24.png" alt="" srcset="">
                     </div>
-                    <p>You have completed the practice session! Click OK to return to the settings page.</p>
-                    <button class="btn-secc" id="close_modal_btn">OK</button>
+                    <h3>You have completed the practice session!</h3>
+                    <p>Click OK to return to the settings page.</p>
+                    <div class="final-modal-btn-container">
+                        <button class="btn-secc" id="close_modal_btn">OK</button>
+                    </div>
                 `;
                 document.body.appendChild(modal);
                 modal.showModal();
