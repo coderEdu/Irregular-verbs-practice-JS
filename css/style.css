@@ -112,3 +112,8 @@ select {
     align-items: center;
     gap: 10px;
 }
+.final-modal-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
