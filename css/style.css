@@ -55,6 +55,20 @@
 .container > table, .container > table th, .container > table td {
     border: 1px solid #ccc;
 }
+.wrong {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 31%;
+    background-color: rgb(254, 222, 238);
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 3px;
+}
+.wrong-close {
+    cursor: pointer;
+    font-size: 14px;
+}
 .td_img {
     width: 50px;
     height: 50px;

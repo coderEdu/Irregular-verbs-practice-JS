@@ -53,6 +53,7 @@ function loadData() {
     insertPracticeCard();
 
     const tenseToPractice = convertTenseString(tense);
+    wrong = document.getElementById("wrong");
     spelling = Verbs.at(random)[tenseToPractice];
     verbDisplay = document.getElementById("verb_display" + counter);
     btn_check = document.querySelector("button[name='btn_check']");
@@ -62,6 +63,23 @@ function loadData() {
     document.getElementById("total_attempts").textContent = totalAttempts;
 
     verbInput.setAttribute("placeholder", `Enter the ${tense} tense`);
+}
+
+function showWrongMessage() {
+    wrong.style.display = "flex";
+    document.getElementById("spelling").textContent = spelling;
+    const wrongCloseBtn = document.getElementById("wrong_close");
+    wrongCloseBtn.addEventListener("click", function() {
+        wrong.style.display = "none";
+        verbInput.value = "";
+        if (counter == verb_amount) {
+            finalMessage();
+        }
+        if (counter <= verb_amount) {
+            loadData();
+            verbInput.focus();
+        }
+    });
 }
 
 function insertPracticeCard() {
@@ -136,9 +154,8 @@ btn_check.addEventListener("click", function() {
             } else {
                 attemptCount = 1;
                 document.getElementById("attempt_count").textContent = attemptCount;
-                if (counter <= verb_amount) {
-                    loadData();
-                }
+                showWrongMessage();  
+                // if the user fails, the correct answer will be shown and the next verb will be loaded after clicking the 'X' button on the wrong message
             }
         }
 
