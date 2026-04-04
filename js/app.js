@@ -37,12 +37,7 @@ function convertTenseString(tense) {
 }
 
 function loadData() {
-    // console.log(tense);
-    // console.log(verb_amount);
-    // console.log(inf_tense);
-    // console.log(Verbs.length);
-
-    ++counter;
+    counter++;
     random = getRandomInt(0, Verbs.length);
 
     if (tense === "infinitive") {
@@ -82,44 +77,56 @@ function insertPracticeCard() {
     verbTable.appendChild(tr);
 }
 
+function finalMessage() {
+    // The ending practice modal
+    let h2 = "";
+    let message = "";
+    let icon = "";
+    if (success_counter == verb_amount) {
+        confetti();
+        confetti();
+        h2 = "Great job!";
+        message = "You have completed the practice session with a perfect score.";
+        icon = "img/Google-Noto-Emoji-Activities-52727-1st-place-medal.24.png";
+    } else {
+        h2 = "Good effort!";
+        message = "You have completed the practice session, but you can do better! Try again to get a perfect score.";
+        icon = "img/Google-Noto-Emoji-Activities-52728-2nd-place-medal.24.png";
+    }
+    const modal = document.createElement('dialog');
+    modal.innerHTML = `
+        <div class="final-modal-title">
+            <h2>${h2}</h2>
+            <img src=${icon} alt="" srcset="">
+        </div>
+        <h3>${message}</h3>
+        <p>Click OK to return to the settings page.</p>
+        <div class="final-modal-btn-container">
+            <button class="btn-secc" id="close_modal_btn">OK</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    modal.showModal();
+    
+    const closeModalBtn = document.getElementById('close_modal_btn');
+    closeModalBtn.addEventListener('click', () => {
+        modal.close();
+        location.href = "index.html";
+    });                
+}
+
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
-    if (userInput !== "") {   
+
+    if (userInput !== "") { 
         if (userInput === spelling) {
+            ++success_counter;
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
-            success_counter++;
             attemptCount = 1;
-            if (counter >= verb_amount) {
-                // The ending practice modal
-                if (success_counter === counter) {
-                    confetti();
-                    confetti();
-                }
-                const modal = document.createElement('dialog');
-                modal.innerHTML = `
-                    <div class="final-modal-title">
-                        <h2>Great job!</h2>
-                        <img src="img/Google-Noto-Emoji-Activities-52727-1st-place-medal.24.png" alt="" srcset="">
-                    </div>
-                    <h3>You have completed the practice session!</h3>
-                    <p>Click OK to return to the settings page.</p>
-                    <div class="final-modal-btn-container">
-                        <button class="btn-secc" id="close_modal_btn">OK</button>
-                    </div>
-                `;
-                document.body.appendChild(modal);
-                modal.showModal();
-
-                const closeModalBtn = document.getElementById('close_modal_btn');
-                closeModalBtn.addEventListener('click', () => {
-                    modal.close();
-                    location.href = "index.html";
-                });                
-            } else {
+            if (counter <= verb_amount) {
                 loadData();
-                verbInput.focus();
-            } 
+            }
         } else {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png"; // 'X' icon
             verbInput.value = "";
@@ -129,10 +136,18 @@ btn_check.addEventListener("click", function() {
             } else {
                 attemptCount = 1;
                 document.getElementById("attempt_count").textContent = attemptCount;
-                loadData();
+                if (counter <= verb_amount) {
+                    loadData();
+                }
             }
-            verbInput.focus();
         }
+
+        verbInput.focus();
         
+        if (counter > verb_amount) {
+            finalMessage();
+        }
     } 
+    
+
 });
