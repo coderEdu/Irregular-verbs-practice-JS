@@ -146,6 +146,16 @@ select {
     background-color: #ccc;
     margin: 20px 0;
 }
+.check-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.repeat-verbs {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff006f;
+}
 .sett-bott-container {
     display: flex;
     justify-content: center;

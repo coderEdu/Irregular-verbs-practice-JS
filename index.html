@@ -21,7 +21,7 @@
     <div class="container">
         <div class="sett-container">
             <h4>What tense do you want to practice?</h4>
-            <div id="radioContainer">
+            <div class="check-container" id="radioContainer">
                 <input type="radio" id="infinitive" name="tense" value="infinitive">
                 <label for="infinitive">Infinitive</label>
                 <input type="radio" id="pastSimple" name="tense" value="past simple" checked>
@@ -31,13 +31,20 @@
             </div>
             <div class="if-infin-container" style="display: none;">
                 <h4>What tense do you want to show in 'random verb'?</h4>
-                <div>
+                <div class="check-container">
                     <input type="radio" id="infPastSimple" name="inf-tense" value="past simple" checked>
                     <label for="infPastSimple">Past Simple</label>
                     <input type="radio" id="infPastParticiple" name="inf-tense" value="past participle">
                     <label for="infPastParticiple">Past Participle</label>
                 </div>
             </div>
+            <div class="separator"></div>
+            <h4>Allow repeated verbs</h4>
+            <div class="check-container">
+                <input type="checkbox" class="repeat-verbs" id="repeat_verbs" name="repeat_verbs">
+                <label for="repeat_verbs">The algorithm can show repeated verbs</label>
+            </div>
+
             <div class="separator"></div>
             <h4>How many verbs do you want to practice?</h4>
             <div class="sett-bott-container">
@@ -66,6 +73,7 @@
     function getSettings() {
         const tense = document.querySelector('input[name="tense"]:checked').value;
         const verb_amount = document.getElementById("verb_amount").value;
+        const repeat_verbs = document.getElementById("repeat_verbs").checked;
         
         // Store string values in localStorage
         localStorage.setItem('tense', tense);
@@ -74,6 +82,7 @@
             localStorage.setItem('inf_tense', inf_tense);
         }
         localStorage.setItem('verb_amount', verb_amount);
+        localStorage.setItem('repeat_verbs', repeat_verbs);
 
         location.href = "practice.html";
     }

@@ -14,6 +14,7 @@ var success_counter = 0;
 let tense = localStorage.getItem('tense'); // "infinitive", "past simple" or "past participle"
 let verb_amount = localStorage.getItem('verb_amount');  // 20, 50, 100, all
 let inf_tense = localStorage.getItem('inf_tense'); // "past simple" or "past participle"
+let repeat_verbs = localStorage.getItem('repeat_verbs') === 'true'; // true or false
 
 // Random function
 function getRandomInt(min, max) {
@@ -48,6 +49,10 @@ function loadData() {
         }
     } else {
         random_verb = Verbs.at(random).infinitive;
+    }
+
+    if (repeat_verbs === "false") {
+        delete Verbs[random]; // remove the verb from the array to avoid repetition
     }
 
     insertPracticeCard();
