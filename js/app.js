@@ -86,6 +86,7 @@ btn_check.addEventListener("click", function() {
             if (counter >= verb_amount) {
                 // The ending practice modal
                 confetti();
+                confetti();
                 const modal = document.createElement('dialog');
                 modal.innerHTML = `
                     <div class="final-modal-title">
