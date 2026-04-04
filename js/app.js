@@ -8,6 +8,7 @@ var totalAttempts = 3;
 var random;
 var random_verb;
 var spelling;
+var success_counter = 0;
 
 // from local storage
 let tense = localStorage.getItem('tense'); // "infinitive", "past simple" or "past participle"
@@ -83,20 +84,23 @@ function insertPracticeCard() {
 
 btn_check.addEventListener("click", function() {
     const userInput = verbInput.value.trim().toLowerCase();
-    if (userInput !== "") {
+    if (userInput !== "") {   
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
+            success_counter++;
             attemptCount = 1;
             if (counter >= verb_amount) {
                 // The ending practice modal
-                confetti();
-                confetti();
+                if (success_counter === counter) {
+                    confetti();
+                    confetti();
+                }
                 const modal = document.createElement('dialog');
                 modal.innerHTML = `
                     <div class="final-modal-title">
                         <h2>Great job!</h2>
-                        <img src="img/Iconshock-Super-Vista-Business-Trophy.24.png" alt="" srcset="">
+                        <img src="img/Google-Noto-Emoji-Activities-52727-1st-place-medal.24.png" alt="" srcset="">
                     </div>
                     <h3>You have completed the practice session!</h3>
                     <p>Click OK to return to the settings page.</p>
@@ -117,11 +121,18 @@ btn_check.addEventListener("click", function() {
                 verbInput.focus();
             } 
         } else {
-            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
+            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png"; // 'X' icon
             verbInput.value = "";
-            attemptCount++;
-            document.getElementById("attempt_count").textContent = attemptCount;
+            if (attemptCount < totalAttempts) {
+                attemptCount++;
+                document.getElementById("attempt_count").textContent = attemptCount;
+            } else {
+                attemptCount = 1;
+                document.getElementById("attempt_count").textContent = attemptCount;
+                loadData();
+            }
             verbInput.focus();
         }
-    }
+        
+    } 
 });
