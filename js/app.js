@@ -3,6 +3,8 @@ var btn_check;
 var verbInput = "";
 var imgSuccess;
 var counter = 0;
+var attemptCount = 1;
+var totalAttempts = 3;
 var random;
 var random_verb;
 var spelling;
@@ -60,6 +62,8 @@ function loadData() {
     btn_check = document.querySelector("button[name='btn_check']");
     verbInput = document.querySelector("input[name='verb']");
     imgSuccess = document.getElementById("img_success" + counter);
+    document.getElementById("attempt_count").textContent = attemptCount;
+    document.getElementById("total_attempts").textContent = totalAttempts;
 
     verbInput.setAttribute("placeholder", `Enter the ${tense} tense`);
 }
@@ -83,6 +87,7 @@ btn_check.addEventListener("click", function() {
         if (userInput === spelling) {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
+            attemptCount = 1;
             if (counter >= verb_amount) {
                 // The ending practice modal
                 confetti();
@@ -106,8 +111,7 @@ btn_check.addEventListener("click", function() {
                 closeModalBtn.addEventListener('click', () => {
                     modal.close();
                     location.href = "index.html";
-                });
-                
+                });                
             } else {
                 loadData();
                 verbInput.focus();
@@ -115,6 +119,8 @@ btn_check.addEventListener("click", function() {
         } else {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
             verbInput.value = "";
+            attemptCount++;
+            document.getElementById("attempt_count").textContent = attemptCount;
             verbInput.focus();
         }
     }

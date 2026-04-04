@@ -28,6 +28,21 @@
     align-items: center;
     margin-top: 20px;
 }
+.attempt-container {
+    display: block;
+    width: 31%;
+}
+.container > div > p {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 0.85em;
+    color: #555;
+}
+#verb_table {
+    width: 45%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 .container > table {
     border-collapse: collapse;
     margin: 0 20px;
@@ -88,7 +103,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 20px;
     border-radius: 5px;
 }
 .input-child {
