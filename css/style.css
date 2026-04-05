@@ -29,8 +29,23 @@
     margin-top: 20px;
 }
 .attempt-container {
-    display: block;
+    display: flex;
     width: 31%;
+    justify-content: space-between;
+}
+.training-container {
+    display: flex;
+    gap: 20px;
+}
+.training-container > p {
+    font-size: 0.85em;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #555;
+}
+.training-container > p > span {
+    font-weight: bold;
+    color: #333;
 }
 .container > div > p {
     margin-top: 20px;
@@ -106,13 +121,13 @@
 }
 .verb-input {
     width: 190px;
-    padding: 5px;
+    padding: 6px;
     font-size: 14px;
 }
 .input-container {
     width: 31%;
     display: flex;
-    padding: 12px;
+    padding: 15px;
     background-color: rgb(240, 240, 240);
     align-items: center;
     justify-content: space-between;

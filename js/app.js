@@ -25,6 +25,10 @@ function getRandomInt(min, max) {
 // Example: random integer between 1 and 10 (possible results: 1, 2, ..., 9)
 // let randomInt = getRandomInt(1, 10);
 
+document.getElementById("verb_total").textContent = verb_amount;
+document.getElementById("tense_training").textContent = tense;
+document.getElementById("repeat_verbs").textContent = repeat_verbs ? "Yes" : "No";
+
 loadData();
 
 function convertTenseString(tense) {
