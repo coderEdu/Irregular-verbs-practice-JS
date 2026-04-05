@@ -51,10 +51,6 @@ function loadData() {
         random_verb = Verbs.at(random).infinitive;
     }
 
-    if (repeat_verbs === "false") {
-        delete Verbs[random]; // remove the verb from the array to avoid repetition
-    }
-
     insertPracticeCard();
 
     const tenseToPractice = convertTenseString(tense);
@@ -68,6 +64,10 @@ function loadData() {
     document.getElementById("total_attempts").textContent = totalAttempts;
 
     verbInput.setAttribute("placeholder", `Enter the ${tense} tense`);
+
+    if (repeat_verbs === false) {
+        Verbs.splice(random, 1); // remove the undefined element from the array to avoid repetition
+    }
 }
 
 function showWrongMessage() {
