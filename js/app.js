@@ -42,6 +42,7 @@ function convertTenseString(tense) {
 }
 
 function loadData() {
+    // console.trace("loadData called");
     counter++;
     random = getRandomInt(0, Verbs.length);
 
@@ -74,23 +75,6 @@ function loadData() {
     }
 }
 
-function showWrongMessage() {
-    wrong.style.display = "flex";
-    document.getElementById("spelling").textContent = spelling;
-    const wrongCloseBtn = document.getElementById("wrong_close");
-    wrongCloseBtn.addEventListener("click", function() {
-        wrong.style.display = "none";
-        verbInput.value = "";
-        if (counter == verb_amount) {
-            finalMessage();
-        }
-        if (counter <= verb_amount) {
-            loadData();
-            verbInput.focus();
-        }
-    });
-}
-
 function insertPracticeCard() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -99,7 +83,6 @@ function insertPracticeCard() {
         <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
         <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
     `;
-
     const verbTable = document.getElementById("verb_table");
     verbTable.appendChild(tr);
 }
@@ -143,7 +126,7 @@ function finalMessage() {
 }
 
 btn_check.addEventListener("click", function() {
-    const userInput = verbInput.value.trim().toLowerCase();
+    const userInput = verbInput.value.trim().toLowerCase(); // Get user input and convert to lowercase for case-insensitive comparison
 
     if (userInput !== "") { 
         if (userInput === spelling) {
@@ -174,6 +157,23 @@ btn_check.addEventListener("click", function() {
             finalMessage();
         }
     } 
-    
+});
 
+function showWrongMessage() {   // Show the wrong message modal
+    wrong.style.display = "flex";
+    document.getElementById("spelling").textContent = spelling;
+}
+
+// Never declare a variable that references an element 'getElementById' or its listener 'actionListener' inside a function.
+// It will cause the variable to be null and the listener won't work or other unwanted behavior may occur.
+// Always declare them in the global scope.
+const wrongCloseBtn = document.getElementById("wrong_close");
+wrongCloseBtn.addEventListener("click", function() {
+    if (counter == verb_amount) {
+        finalMessage();
+    } else if (counter < verb_amount) {
+        loadData();
+    }
+    wrong.style.display = "none";
+    verbInput.value = "";
 });
