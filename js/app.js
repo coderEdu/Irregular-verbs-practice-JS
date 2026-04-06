@@ -176,4 +176,5 @@ wrongCloseBtn.addEventListener("click", function() {
     }
     wrong.style.display = "none";
     verbInput.value = "";
+    verbInput.focus();
 });
