@@ -13,14 +13,14 @@ const defModalTitle = document.getElementById('def_modal_title'); // Get the ele
 const egContent = document.getElementById('eg_content'); // Get the element to display the example
 const egModalTitle = document.getElementById('eg_modal_title'); // Get the element for the example modal title (optional)
 
-// Open the modal
+// Open the definition modal
 openModalBtnDef.addEventListener('click', () => {
   myDefModal.showModal(); // Displays the dialog as a modal
   defContent.textContent = Verbs.at(random).definition; // Set the definition content in the modal
-  defModalTitle.textContent = "Definition of: " + Verbs.at(random).infinitive; // Set the modal title to the infinitive form (optional)
+  defModalTitle.textContent = "Definition of: " + random_verb; // Set the modal title (optional)
 });
 
-// Close the modal
+// Close the definition modal
 closeModalBtnDef.addEventListener('click', () => {
   myDefModal.close();
 });
@@ -29,7 +29,7 @@ closeModalBtnDef.addEventListener('click', () => {
 openModalBtnEg.addEventListener('click', () => {
     myEgModal.showModal(); // Displays the dialog as a modal
     egContent.textContent = Verbs.at(random).example; // Set the example content in the modal
-    egModalTitle.textContent = "Example of: " + Verbs.at(random).infinitive; // Set the modal title to the infinitive form (optional)
+    egModalTitle.textContent = "Example of: " + random_verb;
 });
 
 // Close the example modal
