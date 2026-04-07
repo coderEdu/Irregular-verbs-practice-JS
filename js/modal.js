@@ -23,6 +23,7 @@ openModalBtnDef.addEventListener('click', () => {
 // Close the definition modal
 closeModalBtnDef.addEventListener('click', () => {
   myDefModal.close();
+  verbInput.focus();
 });
 
 // Open the example modal
@@ -35,4 +36,5 @@ openModalBtnEg.addEventListener('click', () => {
 // Close the example modal
 closeModalBtnEg.addEventListener('click', () => {
     myEgModal.close();
+    verbInput.focus();
 });
