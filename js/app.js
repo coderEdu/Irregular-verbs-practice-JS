@@ -42,7 +42,7 @@ function convertTenseString(tense) {
 }
 
 function loadData() {
-    // console.trace("loadData called");
+    // console.log(Verbs.length);
     counter++;
     random = getRandomInt(0, Verbs.length);
 
@@ -70,9 +70,6 @@ function loadData() {
 
     verbInput.setAttribute("placeholder", `Enter the ${tense} tense`);
 
-    if (repeat_verbs === false) {
-        Verbs.splice(random, 1); // remove the undefined element from the array to avoid repetition
-    }
 }
 
 function insertPracticeCard() {
@@ -135,6 +132,7 @@ btn_check.addEventListener("click", function() {
             verbInput.value = "";
             attemptCount = 1;
             if (counter <= verb_amount) {
+                removeRandVerb();
                 loadData();
             }
         } else {
@@ -172,9 +170,16 @@ wrongCloseBtn.addEventListener("click", function() {
     if (counter == verb_amount) {
         finalMessage();
     } else if (counter < verb_amount) {
+        removeRandVerb();
         loadData();
     }
     wrong.style.display = "none";
     verbInput.value = "";
     verbInput.focus();
 });
+
+function removeRandVerb() {    
+    if (repeat_verbs === false) {
+        Verbs.splice(random, 1); // remove the random verb from the array to avoid showing a repetition
+    }
+}
