@@ -98,6 +98,13 @@ if (verb_amount === '1') {
         option.textContent = verb.base;
         select.appendChild(option);
     });
+
+    select.addEventListener("change", function() {
+        const selectedVerb = this.value;
+        const index = Verbs.findIndex(verb => verb.base === selectedVerb);
+        spelling = Verbs.at(index)[convertTenseString(tense)];
+        verbInput.focus();
+    })
 }
 
 function finalMessage() {
