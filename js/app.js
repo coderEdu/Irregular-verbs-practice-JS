@@ -2,7 +2,7 @@ var verbDisplay = "";
 var btn_check;
 var verbInput = "";
 var imgSuccess;
-var counter = 0;
+var counter = 1;
 var attemptCount = 1;
 var totalAttempts = 3;
 var random;
@@ -42,8 +42,6 @@ function convertTenseString(tense) {
 }
 
 function loadData() {
-    // console.log(Verbs.length);
-    counter++;
     random = getRandomInt(0, Verbs.length);
 
     if (tense === "infinitive") {
@@ -131,6 +129,10 @@ btn_check.addEventListener("click", function() {
             imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
             verbInput.value = "";
             attemptCount = 1;
+            ++counter;
+            if (counter > verb_amount) {
+                finalMessage();
+            }
             if (counter <= verb_amount) {
                 removeRandVerb();
                 loadData();
@@ -150,10 +152,6 @@ btn_check.addEventListener("click", function() {
         }
 
         verbInput.focus();
-        
-        if (counter > verb_amount) {
-            finalMessage();
-        }
     } 
 });
 
@@ -167,9 +165,10 @@ function showWrongMessage() {   // Show the wrong message modal
 // Always declare them in the global scope.
 const wrongCloseBtn = document.getElementById("wrong_close");
 wrongCloseBtn.addEventListener("click", function() {
-    if (counter == verb_amount) {
+    ++counter;
+    if (counter > verb_amount) {
         finalMessage();
-    } else if (counter < verb_amount) {
+    } else if (counter <= verb_amount) {
         removeRandVerb();
         loadData();
     }
