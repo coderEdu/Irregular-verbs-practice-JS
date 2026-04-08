@@ -75,11 +75,29 @@ function insertPracticeCard() {
     tr.innerHTML = `
         <td><span id="counter">${counter}.</span></td>
         <td>Write the <span class="tense-highlight">${tense}</span> tense of the following irregular verb</td>
-        <td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>
+        ${verb_amount === '1' ? 
+            `<td>
+                <span id="verb_display${counter}">
+                    <select id="my-select"></select>
+                </span>
+            </td>`
+        : `<td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>`}
         <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
     `;
     const verbTable = document.getElementById("verb_table");
     verbTable.appendChild(tr);
+}
+
+// If the user selects to practice only 1 verb, a dropdown select will be shown instead of the verb display to make it more challenging.
+// The select will be filled with all the verbs in the array.
+if (verb_amount === '1') {
+    const select = document.getElementById("my-select");
+    Verbs.forEach(verb => {
+        const option = document.createElement("option");
+        option.value = verb.base;
+        option.textContent = verb.base;
+        select.appendChild(option);
+    });
 }
 
 function finalMessage() {
