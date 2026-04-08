@@ -11,7 +11,7 @@ var spelling;
 var success_counter = 0;
 
 // from local storage
-let tense = localStorage.getItem('tense'); // "infinitive", "past simple" or "past participle"
+let tense = localStorage.getItem('tense'); // "base", "past simple" or "past participle"
 let verb_amount = localStorage.getItem('verb_amount');  // 20, 50, 100, all
 let inf_tense = localStorage.getItem('inf_tense'); // "past simple" or "past participle"
 let repeat_verbs = localStorage.getItem('repeat_verbs') === 'true'; // true or false
@@ -37,21 +37,21 @@ function convertTenseString(tense) {
     } else if (tense === "past participle") {
         return "pastParticiple";
     } else {
-        return "infinitive";
+        return "base";
     }
 }
 
 function loadData() {
     random = getRandomInt(0, Verbs.length);
 
-    if (tense === "infinitive") {
+    if (tense === "base") {
         if (inf_tense === "past simple") {
             random_verb = Verbs.at(random).pastSimple;
         } else if (inf_tense === "past participle") {
             random_verb = Verbs.at(random).pastParticiple;
         }
     } else {
-        random_verb = Verbs.at(random).infinitive;
+        random_verb = Verbs.at(random).base;
     }
 
     insertPracticeCard();

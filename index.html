@@ -22,8 +22,8 @@
         <div class="sett-container">
             <h4>What tense do you want to practice?</h4>
             <div class="check-container" id="radioContainer">
-                <input type="radio" id="infinitive" name="tense" value="infinitive">
-                <label for="infinitive">Infinitive</label>
+                <input type="radio" id="base" name="tense" value="base">
+                <label for="base">base</label>
                 <input type="radio" id="pastSimple" name="tense" value="past simple" checked>
                 <label for="pastSimple">Past Simple</label>
                 <input type="radio" id="pastParticiple" name="tense" value="past participle">
@@ -77,7 +77,7 @@
         
         // Store string values in localStorage
         localStorage.setItem('tense', tense);
-        if (tense === 'infinitive') {
+        if (tense === 'base') {
             const inf_tense = document.querySelector('input[name="inf-tense"]:checked').value;
             localStorage.setItem('inf_tense', inf_tense);
         }
