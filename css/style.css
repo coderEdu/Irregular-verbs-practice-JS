@@ -1,3 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
 .header-container {
     display: flex;
     align-items: center;
@@ -32,6 +38,7 @@
     display: flex;
     width: 31%;
     justify-content: space-between;
+    margin-top: 20px;
 }
 .training-container {
     display: flex;
@@ -116,7 +123,9 @@
     cursor: pointer;
 }
 .tense-highlight {
-    background-color: rgb(252, 252, 182);
+    color: blue !important;
+    font-style: italic;
+    font-weight: lighter;
 }
 .verb-display {
     color: blue;
@@ -135,6 +144,7 @@
     justify-content: space-between;
     gap: 10px;
     border-radius: 5px;
+    box-shadow: 8px 8px 14px rgb(156, 168, 173);;
 }
 .input-child {
     display: flex;
