@@ -16,8 +16,11 @@ const egModalTitle = document.getElementById('eg_modal_title'); // Get the eleme
 // Open the definition modal
 openModalBtnDef.addEventListener('click', () => {
   myDefModal.showModal(); // Displays the dialog as a modal
-  defContent.textContent = Verbs.at(random).definition; // Set the definition content in the modal
-  defModalTitle.textContent = "Definition of: " + random_verb; // Set the modal title (optional)
+  // Get the definition based on the selected verb or random verb
+  const definition = verb_amount === '1' ? Verbs.find(verb => verb.base === selectedDropdownVerb).definition : Verbs.at(random).definition;
+  defContent.textContent = definition; // Set the definition content in the modal
+  const verb = verb_amount === '1' ? selectedDropdownVerb : random_verb; // Determine which verb to use for the title
+  defModalTitle.textContent = "Definition of: " + verb; // Set the modal title (optional)
 });
 
 // Close the definition modal

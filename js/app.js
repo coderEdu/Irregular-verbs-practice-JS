@@ -7,6 +7,7 @@ var attemptCount = 1;
 var totalAttempts = 3;
 var random;
 var random_verb;
+var selectedDropdownVerb;
 var spelling;
 var success_counter = 0;
 
@@ -103,6 +104,7 @@ if (verb_amount === '1') {
         const selectedVerb = this.value;
         const index = Verbs.findIndex(verb => verb.base === selectedVerb);
         spelling = Verbs.at(index)[convertTenseString(tense)];
+        selectedDropdownVerb = Verbs.at(index).base;
         verbInput.focus();
     })
 }
