@@ -32,8 +32,10 @@ closeModalBtnDef.addEventListener('click', () => {
 // Open the example modal
 openModalBtnEg.addEventListener('click', () => {
     myEgModal.showModal(); // Displays the dialog as a modal
-    egContent.textContent = Verbs.at(random).example; // Set the example content in the modal
-    egModalTitle.textContent = "Example of: " + random_verb;
+    const example = verb_amount === '1' ? Verbs.find(verb => verb.base === selectedDropdownVerb).example : Verbs.at(random).example;
+    egContent.textContent =  example; // Set the example content in the modal
+    const verb = verb_amount === '1' ? selectedDropdownVerb : random_verb; // Determine which verb to use for the title
+    egModalTitle.textContent = "Example of: " + verb;
 });
 
 // Close the example modal
