@@ -165,11 +165,16 @@ btn_check.addEventListener("click", function() {
                 loadData();
             }
         } else {
-            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png"; // 'X' icon
             verbInput.value = "";
             if (attemptCount < totalAttempts) {
                 attemptCount++;
                 document.getElementById("attempt_count").textContent = attemptCount;
+                if (attemptCount === 2) {
+                    imgSuccess.src = "img/Oxygen-Icons.org-Oxygen-Emotes-face-surprise.24.png";
+                } else {
+                    imgSuccess.src = "img/Oxygen-Icons.org-Oxygen-Emotes-face-embarrassed.24.png";
+
+                }
             } else {
                 attemptCount = 1;
                 document.getElementById("attempt_count").textContent = attemptCount;
@@ -193,6 +198,7 @@ function showWrongMessage() {   // Show the wrong message modal
 const wrongCloseBtn = document.getElementById("wrong_close");
 wrongCloseBtn.addEventListener("click", function() {
     ++counter;
+    imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Close-2.16.png";
     if (counter > verb_amount) {
         finalMessage();
     } else if (counter <= verb_amount) {
