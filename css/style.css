@@ -200,3 +200,8 @@ select {
     justify-content: center;
     margin-top: 20px;
 }
+/* ids */
+#attempt_count, #total_attempts {
+    font-weight: bold;
+    color: #333;
+}
