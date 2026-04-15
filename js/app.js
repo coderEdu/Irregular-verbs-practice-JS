@@ -100,6 +100,10 @@ if (verb_amount === '1') {
         select.appendChild(option);
     });
 
+    // Set the initial selected verb and spelling based on the first verb in the array
+    selectedDropdownVerb = Verbs.at(0).base;
+    spelling = Verbs.at(0)[convertTenseString(tense)];
+
     select.addEventListener("change", function() {
         const selectedVerb = this.value;
         const index = Verbs.findIndex(verb => verb.base === selectedVerb);
