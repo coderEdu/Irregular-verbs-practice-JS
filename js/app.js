@@ -92,9 +92,25 @@ function insertPracticeCard() {
 // If the user selects to practice only 1 verb, a dropdown select will be shown instead of the verb display to make it more challenging.
 // The select will be filled with all the verbs in the array.
 if (verb_amount === '1') {
+    // console.log(convertTenseString(tense));
+    // console.log("if tense: " + inf_tense);
     const select = document.getElementById("my-select");
     Verbs.forEach(verb => {
         const option = document.createElement("option");
+
+        // if (tense === "base") {
+        //     if (inf_tense === "past simple") {
+        //         option.value = verb.pastSimple;
+        //         option.textContent = verb.pastSimple;
+        //     } else if (inf_tense === "past participle") {
+        //         option.value = verb.pastParticiple;
+        //         option.textContent = verb.pastParticiple;
+        //     }
+        // } else {
+        //     option.value = verb.base;
+        //     option.textContent = verb.base;
+        // }
+
         option.value = verb.base;
         option.textContent = verb.base;
         select.appendChild(option);
