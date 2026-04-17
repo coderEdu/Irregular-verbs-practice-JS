@@ -207,6 +207,15 @@ btn_check.addEventListener("click", function() {
     } 
 });
 
+btn_check.addEventListener("focus", function() {
+    btn_check.style.backgroundColor = "#4CAF50"; // Change to a green color when focused
+
+});
+
+btn_check.addEventListener("blur", function() {
+    btn_check.style.backgroundColor = ""; // Revert to original color when not focused
+});
+
 function showWrongMessage() {   // Show the wrong message modal
     wrong.style.display = "flex";
     document.getElementById("spelling").textContent = spelling;
