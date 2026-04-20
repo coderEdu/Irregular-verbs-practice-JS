@@ -83,7 +83,9 @@ function insertPracticeCard() {
                 </span>
             </td>`
         : `<td><span id="verb_display${counter}" class="verb-display">${random_verb}</span></td>`}
-        <td class="td_img"><img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}"></td>
+        <td class="td_img">
+            <img src="img/Custom-Icon-Design-Flatastic-2-Faq.16.png" alt="" srcset="" id="img_success${counter}">
+        </td>
     `;
     const verbTable = document.getElementById("verb_table");
     verbTable.appendChild(tr);
@@ -173,7 +175,7 @@ btn_check.addEventListener("click", function() {
     if (userInput !== "") { 
         if (userInput === spelling) {
             ++success_counter;
-            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png";
+            imgSuccess.src = "img/Hopstarter-Sleek-Xp-Basic-Ok.16.png"; 
             verbInput.value = "";
             attemptCount = 1;
             ++counter;
