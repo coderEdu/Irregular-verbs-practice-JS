@@ -140,7 +140,11 @@ function finalMessage() {
         confetti();
         confetti();
         h2 = "Great job!";
-        message = "You have completed the practice session with a perfect score.";
+        if (verb_amount == 1) {
+            message = `You have completed the practice session by correctly conjugating the verb "${selectedDropdownVerb}" in the ${tense} tense.`;
+        } else {
+            message = "You have completed the practice session with a perfect score.";
+        }
         icon = "img/Google-Noto-Emoji-Activities-52727-1st-place-medal.24.png";
     } else {
         h2 = "Good effort!";
@@ -211,7 +215,6 @@ btn_check.addEventListener("click", function() {
 
 btn_check.addEventListener("focus", function() {
     btn_check.style.backgroundColor = "#4CAF50"; // Change to a green color when focused
-
 });
 
 btn_check.addEventListener("blur", function() {
