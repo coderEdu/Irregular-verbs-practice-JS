@@ -137,8 +137,7 @@ function finalMessage() {
     let message = "";
     let icon = "";
     if (success_counter == verb_amount) {
-        confetti();
-        confetti();
+        confetti({ count: 450, size: 1.3, velocity: 300, fade: false }); // confetti animation for perfect score
         h2 = "Great job!";
         if (verb_amount == 1) {
             message = `You have completed the practice session by correctly conjugating the verb "${selectedDropdownVerb}" in the ${tense} tense.`;
@@ -189,6 +188,9 @@ btn_check.addEventListener("click", function() {
             if (counter <= verb_amount) {
                 removeRandVerb();
                 loadData();
+                // ...
+                var last = document.getElementById("prompt");
+                last.scrollIntoView({ behavior: "smooth", block: "end" });
             }
         } else {
             verbInput.value = "";

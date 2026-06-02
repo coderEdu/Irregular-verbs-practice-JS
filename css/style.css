@@ -30,6 +30,8 @@ body {
 }
 .container {
     display: flex;
+    min-height: 200px;
+    height: auto;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
